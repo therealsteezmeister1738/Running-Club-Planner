@@ -1,0 +1,60 @@
+name: Weekly Run Reminders
+on:
+  schedule:
+    # Run every Friday at 6:00 PM Pacific Time
+    # Pacific Time is UTC-8 (PST) or UTC-7 (PDT)
+    # 6:00 PM PST = 2:00 AM UTC Saturday
+    # 6:00 PM PDT = 1:00 AM UTC Saturday
+    # Using 1:00 AM UTC to cover both (runs at 6pm PDT / 5pm PST)
+    - cron: '0 1 * * 6'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  create-reminder:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create weekly reminder issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = date.toLocaleDateString('en-US', options);
+            
+            const issueBody = `## 🏃 Weekly Running Club Reminder
+            
+            **Date:** ${dateStr}
+            
+            ### This Week's Scheduled Runs
+            
+            Check the [schedules](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/schedules.md) for regular run times:
+            
+            - **Tuesday 6:00 PM** - Social Run (Downtown Loop)
+            - **Thursday 6:00 AM** - Tempo Run (River Trail)
+            - **Saturday 7:00 AM** - Long Run (Route TBD)
+            - **Sunday 8:00 AM** - Recovery Run + Coffee
+            
+            ### Reminders
+            
+            - Review [routes](https://github.com/${context.repo.owner}/${context.repo.repo}/tree/main/runs/routes) before heading out
+            - Check weather and dress appropriately
+            - Bring water and your phone
+            - New to the group? Arrive 10 minutes early!
+            
+            ### Upcoming Events
+            
+            Check the [race calendar](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/race-calendar/2026.md) for upcoming races.
+            
+            ---
+            
+            *This is an automated weekly reminder. To adjust the schedule, edit \`.github/workflows/weekly-reminders.yml\`*`;
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🏃 Weekly Reminder - Week of ${dateStr}`,
+              body: issueBody,
+              labels: ['weekly-reminder', 'automated']
+            });
