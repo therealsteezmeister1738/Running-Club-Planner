@@ -1,0 +1,32 @@
+name: Strava Sync (Placeholder)
+on:
+  workflow_dispatch:
+  # Future: Add schedule or webhook triggers
+  # schedule:
+  #   - cron: '0 2 * * *'  # Daily at 2 AM UTC
+
+jobs:
+  sync-strava:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Placeholder for Strava Integration
+        run: |
+          echo "🚧 Strava integration placeholder"
+          echo ""
+          echo "Future implementation will:"
+          echo "- Sync club activities from Strava API"
+          echo "- Update attendance tracking automatically"
+          echo "- Aggregate anonymous mileage statistics"
+          echo "- Update member progress toward goals"
+          echo ""
+          echo "To implement:"
+          echo "1. Add STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET to repository secrets"
+          echo "2. Implement OAuth flow for club members (opt-in only)"
+          echo "3. Add API calls to fetch activities"
+          echo "4. Update relevant markdown files with aggregated data"
+          echo ""
+          echo "Privacy note: Only sync data from members who explicitly opt in."
+          echo "Never store personal tokens or private activity data in the repository."
