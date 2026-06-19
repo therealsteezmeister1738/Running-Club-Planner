@@ -1,32 +1,29 @@
-# Running Club Planner
+# Running-Club-Planner
 
-Organizing a San Diego accountability running club focused on consistency, community, and supporting runners of all levels.
+A privacy-focused public repository for tracking group runs, routes, race calendars, and member progress.
 
-## Purpose
+## Features
 
-This repository serves as the organizational hub for our San Diego-based accountability running club. We believe that running is better together, and consistent group runs help build habits that last.
+- **Weekly Attendance Tracking** - Simple headcount-based logging
+- **Group Run Scheduling** - Planned runs with routes and details
+- **Race Calendar** - Upcoming races and event planning
+- **Route Library** - Curated running routes with maps and details
+- **Progress Tracking** - Anonymous member goal progress
+- **Weekly Reminders** - Automated GitHub Actions notifications
 
-## Club Overview
+## Quick Start
 
-- **Focus:** Accountability and consistency for beginner to intermediate runners
-- **Typical Distance:** 3-6 miles
-- **Pace Range:** 9:00-12:00 minute miles (with pace groups as needed)
-- **Schedule:** Weekly weekend morning runs
-- **Location:** Rotating locations around San Diego
-- **Post-Run:** Coffee and social time
+1. Check [docs/schedules.md](docs/schedules.md) for regular run times
+2. Browse [runs/routes/](runs/routes/) for recommended routes
+3. View [race-calendar/2026.md](race-calendar/2026.md) for upcoming races
+4. See [docs/getting-started.md](docs/getting-started.md) for beginner tips
 
-## Repository Structure
+## Privacy Notice
 
-This planner will include:
-- Run schedules and routes
-- Member information and preferences
-- Resources for new runners
-- Event planning materials
+This repository is public and contains NO personal contact information or member directory. All participation is voluntary and anonymous.
 
-## Getting Involved
+## Contributing
 
-Interested in joining? Watch this space for upcoming run details and member information.
-
----
-
-*Building a stronger running community in San Diego, one consistent mile at a time.*
+- Suggest new routes via GitHub Issues (use route suggestion template)
+- Propose group runs via GitHub Issues (use event planning template)
+- Update documentation via Pull Requests
